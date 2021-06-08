@@ -1,8 +1,10 @@
-variable "x" {
-   type = string 
-   default = "Linux World"
-  }
+resource "aws_instance" "webos1" {
+  ami           = "ami-010aff33ed5991201"
+  instance_type = "t2.micro"
+  security_groups = [ "os-4" ]
+  key_name = "gautamsethi"
 
-output "myvalue"{
-  value = "${var.x}"
- }
+  tags = {
+    Name = "web server"
+  }
+}
